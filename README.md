@@ -26,3 +26,6 @@ Tailwind - [https://tailwindcss.com/docs/guides/create-react-app]
 `docker compose - - build` = rebuild after updating code
 `docker compose down` = stop all containers in background
 `docker-compose exec notes-app npm run seed` = Run seed script
+
+TEST UI Components
+https://codesandbox.io/s/financial-planner-ybkhv?file=/src/Components/Card.js
