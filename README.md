@@ -2,6 +2,13 @@
 
 ###### Bleeding Edge Tech Stack
 
+AWS --> architecture
+aws-cdk.aws-ec2
+aws-cdk.aws-autoscaling
+aws-cdk.aws-elasticloadbalancingv2
+aws-cdk.aws-rds
+aws-cdk.aws-efs
+
 CD/CI - CDK Pipelines [https://docs.aws.amazon.com/cdk/api/latest/docs/pipelines-readme.html]
 Docker
 OAUTH2/OKTA
