@@ -15,6 +15,7 @@ OAUTH2/OKTA
 SQL
 React Server Components - [https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html]
 Swagger
+Tailwind - [https://tailwindcss.com/docs/guides/create-react-app]
 
 # docker
 
