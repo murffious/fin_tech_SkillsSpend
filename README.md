@@ -2,9 +2,12 @@
 
 ###### Bleeding Edge Tech Stack
 
-CD/CI - CDK Pipelines
-React Server Components
-CDK Pipelines
+CD/CI - CDK Pipelines [https://docs.aws.amazon.com/cdk/api/latest/docs/pipelines-readme.html]
+Docker
+OAUTH2/OKTA
+SQL
+React Server Components - [https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html]
+Swagger
 
 # docker
 
