@@ -1,5 +1,7 @@
 # fin_tech_SkillsSpend
 
+PURPOSE: finance app that actually makes sense
+
 ###### Bleeding Edge Tech Stack
 
 AWS --> architecture
@@ -11,7 +13,7 @@ aws-cdk.aws-efs
 
 CD/CI - CDK Pipelines [https://docs.aws.amazon.com/cdk/api/latest/docs/pipelines-readme.html]
 Docker
-OAUTH2/OKTA
+OAUTH2/OKTA, PLAID
 SQL
 React Server Components - [https://reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components.html]
 Swagger
