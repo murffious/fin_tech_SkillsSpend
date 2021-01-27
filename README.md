@@ -1,1 +1,10 @@
 # fin_tech_SkillsSpend
+
+# docker
+
+`docker ps` = status of running containers
+`docker paste_id stop` = stop a container
+`docker compose up` = build / run containers
+`docker compose up -d` = build / run containers in background
+`docker compose - - build` = rebuild after updating code
+`docker compose down` = stop all containers in background
