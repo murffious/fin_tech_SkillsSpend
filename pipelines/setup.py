@@ -6,20 +6,20 @@ with open("README.md") as fp:
 
 
 setuptools.setup(
-    name="dockerized_app_cdk",
-    version="1.0.0",
+    name="pipelines",
+    version="0.0.1",
 
-    description="An AWS CDK app to launch a dockerized app into 3-tier architecture.",
+    description="An empty CDK Python app",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    author="Evan Ng",
+    author="author",
 
-    package_dir={"": "dockerized_app_cdk"},
-    packages=setuptools.find_packages(where="dockerized_app_cdk"),
+    package_dir={"": "pipelines"},
+    packages=setuptools.find_packages(where="pipelines"),
 
     install_requires=[
-        "aws-cdk.core",
+        "aws-cdk.core==1.85.0",
     ],
 
     python_requires=">=3.6",

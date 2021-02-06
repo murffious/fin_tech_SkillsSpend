@@ -31,3 +31,9 @@ Tailwind - [https://tailwindcss.com/docs/guides/create-react-app]
 
 TEST UI Components
 https://codesandbox.io/s/financial-planner-ybkhv?file=/src/Components/Card.js
+
+# cdk-python
+
+cdk init app --language python
+python -m pip install -r requirements.txt
+source .venv/bin/activate
