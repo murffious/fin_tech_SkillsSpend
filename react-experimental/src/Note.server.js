@@ -14,7 +14,7 @@ import path from 'path';
 import NotePreview from './NotePreview';
 import EditButton from './EditButton.client';
 import NoteEditor from './NoteEditor.client';
-
+import List from './List.client';
 export default function Note({selectedId, isEditing}) {
   const note =
     selectedId != null
@@ -31,6 +31,7 @@ export default function Note({selectedId, isEditing}) {
         <div className="note--empty-state">
           <span className="note-text--empty-state">
             Click a note on the left to view something! 🥺
+            <List/>
           </span>
         </div>
       );

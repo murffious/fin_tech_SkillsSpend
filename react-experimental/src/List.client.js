@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import ReactDOM from 'react-dom';
 import {DndContext} from '@dnd-kit/core';
 import {useDroppable} from '@dnd-kit/core';
 import {useDraggable} from '@dnd-kit/core';
-import "./styles.css";
+// import "./styles.css";
 
-function App() {
+export default function List() {
   const [isDropped, setIsDropped] = useState(false);
   const draggableMarkup = (
     <div className="Card" >
@@ -68,8 +67,3 @@ export function Draggable(props) {
   );
 }
 
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById('root')
-);
