@@ -37,3 +37,7 @@ https://codesandbox.io/s/financial-planner-ybkhv?file=/src/Components/Card.js
 cdk init app --language python
 python -m pip install -r requirements.txt
 source .venv/bin/activate
+
+# after updating requirements.txt
+
+pip install --upgrade -r requirements.txt
