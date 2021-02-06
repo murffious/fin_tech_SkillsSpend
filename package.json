@@ -1,19 +1,24 @@
 {
-  "name": "fin_tech_skillsspend",
-  "version": "1.0.0",
-  "description": "fin tech app ",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/murffious/fin_tech_SkillsSpend.git"
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^8.2.4",
+    "postcss-simple-vars": "^6.0.3",
+    "typescript": "^4.1.3"
   },
-  "author": "paul morf",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/murffious/fin_tech_SkillsSpend/issues"
-  },
-  "homepage": "https://github.com/murffious/fin_tech_SkillsSpend#readme"
+  "dependencies": {
+    "@dnd-kit/core": "^1.0.1",
+    "@dnd-kit/modifiers": "^1.0.1",
+    "@dnd-kit/sortable": "^1.0.1",
+    "@dnd-kit/utilities": "^1.0.1",
+    "classnames": "^2.2.6",
+    "postcss-loader": "^4.1.0",
+    "postcss-nested": "^5.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "style-loader": "^2.0.0"
+  }
 }
