@@ -3,11 +3,12 @@ from aws_cdk.pipelines import CdkPipeline, SimpleSynthAction
 
 import aws_cdk.aws_codepipeline as codepipeline
 import aws_cdk.aws_codepipeline_actions as codepipeline_actions
-import os
-from dotenv import load_dotenv
 
-load_dotenv(verbose=True)
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+# import os
+# from dotenv import load_dotenv
+
+# load_dotenv(verbose=True)
+# GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 
 class MyPipelineStack(Stack):
@@ -25,7 +26,7 @@ class MyPipelineStack(Stack):
             source_action=codepipeline_actions.GitHubSourceAction(
                 action_name="GitHub",
                 output=source_artifact,
-                oauth_token=GITHUB_TOKEN,
+                oauth_token=SecretValue.secrets_manager("GITHUB_TOKEN"),
                 trigger=codepipeline_actions.GitHubTrigger.POLL,
                 # Replace these with your actual GitHub project info
                 owner="murffious",
