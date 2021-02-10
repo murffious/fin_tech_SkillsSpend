@@ -5,12 +5,22 @@ import aws_cdk.aws_codepipeline as codepipeline
 import aws_cdk.aws_codepipeline_actions as codepipeline_actions
 from aws_cdk.aws_codepipeline_actions import ManualApprovalAction
 
-# import os
-# from dotenv import load_dotenv
+import os
+from dotenv import load_dotenv
+import aws_cdk.aws_secretsmanager as sm
+load_dotenv(verbose=True)
+secret_arn = os.getenv("SECRET_ARN")
 
-# load_dotenv(verbose=True)
-# GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
+class SecretsManagerStack(core.Stack):
+    def __init__(self, scope: core.App, id: str, **kwargs):
+      super().__init__(scope, name, **kwargs)
+
+      secret = sm.Secret.from_secret_attributes(self, "ImportedSecret",
+          secret_arn=secret_arn,
+          # If the secret is encrypted using a KMS-hosted CMK, either import or reference that key:
+          # encryption_key=....
+      )
 
 class MyPipelineStack(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
