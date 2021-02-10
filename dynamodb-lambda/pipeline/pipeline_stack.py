@@ -5,22 +5,6 @@ import aws_cdk.aws_codepipeline as codepipeline
 import aws_cdk.aws_codepipeline_actions as codepipeline_actions
 from aws_cdk.aws_codepipeline_actions import ManualApprovalAction
 
-import os
-from dotenv import load_dotenv
-import aws_cdk.aws_secretsmanager as sm
-load_dotenv(verbose=True)
-secret_arn = os.getenv("SECRET_ARN")
-
-
-class SecretsManagerStack(core.Stack):
-    def __init__(self, scope: core.App, id: str, **kwargs):
-      super().__init__(scope, name, **kwargs)
-
-      secret = sm.Secret.from_secret_attributes(self, "ImportedSecret",
-          secret_arn=secret_arn,
-          # If the secret is encrypted using a KMS-hosted CMK, either import or reference that key:
-          # encryption_key=....
-      )
 
 class MyPipelineStack(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
@@ -53,7 +37,6 @@ class MyPipelineStack(Stack):
             ),
         )
 
-<<<<<<< HEAD
         # Do this as many times as necessary with any account and region
         # # Account and region may different from the pipeline's.
         # pipeline.add_application_stage(
@@ -63,8 +46,6 @@ class MyPipelineStack(Stack):
         #         env=Environment(account="123456789012", region="eu-west-1"),
         #     )
         # )
-=======
->>>>>>> main
         # testing_stage = pipeline.add_application_stage(
         #     MyApplication(
         #         self,

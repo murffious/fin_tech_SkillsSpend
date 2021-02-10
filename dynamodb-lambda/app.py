@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from aws_cdk import core
+from aws_cdk.core import Stack
 
 from dynamodb_lambda.dynamodb_lambda_stack import DynamodbLambdaStack
 from pipeline.pipeline_stack import MyPipelineStack
@@ -11,6 +12,25 @@ load_dotenv(verbose=True)
 AWS_ACCT = os.getenv("AWS_ACCT")
 
 app = core.App()
+import os
+from dotenv import load_dotenv
+import aws_cdk.aws_secretsmanager as sm
+
+load_dotenv(verbose=True)
+secret_arn = os.getenv("SECRET_ARN")
+
+
+class SecretsManagerStack(Stack):
+    def __init__(self, scope: app, id: str, **kwargs):
+        super().__init__(scope, name, **kwargs)
+
+        secret = sm.Secret.from_secret_attributes(
+            self,
+            "ImportedSecret",
+            secret_arn=secret_arn,
+            # If the secret is encrypted using a KMS-hosted CMK, either import or reference that key:
+            # encryption_key=....
+        )
 
 
 # class MyApplication(Stage):
