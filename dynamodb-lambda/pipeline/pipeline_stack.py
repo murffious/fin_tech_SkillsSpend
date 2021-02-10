@@ -3,6 +3,7 @@ from aws_cdk.pipelines import CdkPipeline, SimpleSynthAction
 
 import aws_cdk.aws_codepipeline as codepipeline
 import aws_cdk.aws_codepipeline_actions as codepipeline_actions
+from aws_cdk.aws_codepipeline_actions import ManualApprovalAction
 
 # import os
 # from dotenv import load_dotenv
@@ -40,3 +41,20 @@ class MyPipelineStack(Stack):
                 # build_command="npm run build",
             ),
         )
+
+        # testing_stage = pipeline.add_application_stage(
+        #     MyApplication(
+        #         self,
+        #         "Testing",
+        #         env=Environment(account="111111111111", region="eu-west-1"),
+        #     )
+        # )
+
+        # # Add an action -- in this case, a Manual Approval action
+        # # (testingStage.addManualApprovalAction() is an equivalent convenience method)
+        # testing_stage.add_actions(
+        #     ManualApprovalAction(
+        #         action_name="ManualApproval",
+        #         run_order=testing_stage.next_sequential_run_order(),
+        #     )
+        # )

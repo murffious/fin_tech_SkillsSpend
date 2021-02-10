@@ -11,6 +11,16 @@ load_dotenv(verbose=True)
 AWS_ACCT = os.getenv("AWS_ACCT")
 
 app = core.App()
+
+
+# class MyApplication(Stage):
+#     def __init__(self, scope: Construct, id: str, **kwargs):
+#         super().__init__(scope, id, **kwargs)
+
+#         db_stack = DatabaseStack(self, "Database")
+#         ComputeStack(self, "Compute", table=db_stack.table)
+
+
 DynamodbLambdaStack(app, "dynamodb-lambda")
 MyPipelineStack(
     app, "pipeline", env=core.Environment(account=AWS_ACCT, region="us-east-1")
