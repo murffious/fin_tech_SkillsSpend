@@ -43,6 +43,7 @@ class MyPipelineStack(Stack):
             ),
         )
 
+<<<<<<< HEAD
         # Do this as many times as necessary with any account and region
         # # Account and region may different from the pipeline's.
         # pipeline.add_application_stage(
@@ -52,6 +53,8 @@ class MyPipelineStack(Stack):
         #         env=Environment(account="123456789012", region="eu-west-1"),
         #     )
         # )
+=======
+>>>>>>> main
         # testing_stage = pipeline.add_application_stage(
         #     MyApplication(
         #         self,

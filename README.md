@@ -53,6 +53,4 @@ python -m pip install aws_cdk.pipelines aws_cdk.aws_codebuild
 python -m pip install aws_cdk.aws_codepipeline aws_cdk.aws_codepipeline_actions
 https://docs.aws.amazon.com/cdk/latest/guide/cdk_pipeline.html
 
-test
-
 # swagger
