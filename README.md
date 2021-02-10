@@ -34,10 +34,12 @@ https://codesandbox.io/s/financial-planner-ybkhv?file=/src/Components/Card.js
 
 # cdk-python
 
+update cdk
 npm update -g aws-cdk
 pip install --upgrade -r requirements.txt
 https://docs.aws.amazon.com/cdk/latest/guide/troubleshooting.html
 
+init project
 cdk init app --language python
 python -m pip install -r requirements.txt
 source .venv/bin/activate
@@ -45,5 +47,10 @@ source .venv/bin/activate
 # after updating requirements.txt
 
 pip install --upgrade -r requirements.txt
+
+add pipelines
+python -m pip install aws_cdk.pipelines aws_cdk.aws_codebuild
+python -m pip install aws_cdk.aws_codepipeline aws_cdk.aws_codepipeline_actions
+https://docs.aws.amazon.com/cdk/latest/guide/cdk_pipeline.html
 
 # swagger
