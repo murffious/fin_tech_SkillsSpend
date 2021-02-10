@@ -6,7 +6,7 @@ with open("README.md") as fp:
 
 
 setuptools.setup(
-    name="pipelines",
+    name="dynamodb_lambda",
     version="0.0.1",
 
     description="An empty CDK Python app",
@@ -15,11 +15,18 @@ setuptools.setup(
 
     author="author",
 
-    package_dir={"": "pipelines"},
-    packages=setuptools.find_packages(where="pipelines"),
+    package_dir={"": "dynamodb_lambda"},
+    packages=setuptools.find_packages(where="dynamodb_lambda"),
 
     install_requires=[
-        "aws-cdk.core==1.85.0",
+        "aws-cdk.core",
+        "aws-cdk.aws_lambda",
+        "aws-cdk.aws_dynamodb",
+        "boto3",
+        "botocore"
+        "aws-cdk.aws_events",
+        "aws-cdk.aws_lambda_event_sources",
+        "aws-cdk.aws_events_targets"
     ],
 
     python_requires=">=3.6",
