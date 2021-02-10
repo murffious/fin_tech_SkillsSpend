@@ -5,6 +5,7 @@ from aws_cdk import core
 from dynamodb_lambda.dynamodb_lambda_stack import DynamodbLambdaStack
 from pipeline.pipeline_stack import MyPipelineStack
 from dotenv import load_dotenv
+import os
 
 load_dotenv(verbose=True)
 AWS_ACCT = os.getenv("AWS_ACCT")
