@@ -7,9 +7,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv(verbose=True)
-
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-AWS_ACCT = os.getenv("AWS_ACCT")
 
 
 class MyPipelineStack(Stack):
