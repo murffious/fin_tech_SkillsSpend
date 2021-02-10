@@ -32,6 +32,7 @@ class MyPipelineStack(Stack):
                 # Replace these with your actual GitHub project info
                 owner="murffious",
                 repo="fin_tech_SkillsSpend",
+                branch="main",
             ),
             synth_action=SimpleSynthAction.standard_npm_synth(
                 source_artifact=source_artifact,
@@ -42,6 +43,15 @@ class MyPipelineStack(Stack):
             ),
         )
 
+        # Do this as many times as necessary with any account and region
+        # # Account and region may different from the pipeline's.
+        # pipeline.add_application_stage(
+        #     MyApplication(
+        #         self,
+        #         "Prod",
+        #         env=Environment(account="123456789012", region="eu-west-1"),
+        #     )
+        # )
         # testing_stage = pipeline.add_application_stage(
         #     MyApplication(
         #         self,
