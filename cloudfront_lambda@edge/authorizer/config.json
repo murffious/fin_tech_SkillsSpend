@@ -11,7 +11,7 @@
         "grant_type": "authorization_code",
         "client_secret": "ZkeyM"
     },
-    "DISTRIBUTION": "dsa-platform-tool-dev",
+    "DISTRIBUTION": "skillSpend",
     "AUTHN": "OKTA",
     "PRIVATE_KEY": ,
     "PUBLIC_KEY": ,
