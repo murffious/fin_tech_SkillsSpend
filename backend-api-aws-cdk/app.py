@@ -3,6 +3,7 @@
 from aws_cdk import core
 from aws_cdk.core import Stack
 
+from app_sync_cdk.app_sync_cdk_stack import AppSyncCdkStack
 from dynamodb_lambda.dynamodb_lambda_stack import DynamodbLambdaStack
 from pipeline.pipeline_stack import MyPipelineStack
 from dotenv import load_dotenv
@@ -42,6 +43,8 @@ class SecretsManagerStack(Stack):
 
 
 DynamodbLambdaStack(app, "dynamodb-lambda")
+AppSyncCdkStack(app, "AppSyncGraphQLDynamoDBExample")
+
 MyPipelineStack(
     app, "pipeline", env=core.Environment(account=AWS_ACCT, region="us-east-1")
 )
