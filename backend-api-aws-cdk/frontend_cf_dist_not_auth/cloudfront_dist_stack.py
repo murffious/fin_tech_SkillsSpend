@@ -1,5 +1,6 @@
 import aws_cdk.aws_cloudfront as cloudfront
 import aws_cdk.aws_cloudfront_origins as origins
+aws_cdk.aws_s3
 
 # Creates a distribution for a S3 bucket.
 my_bucket = s3.Bucket(self, "myBucket")

@@ -29,6 +29,7 @@ setuptools.setup(
         "aws-cdk.aws-appsync",
         "aws-cdk.aws-iam",
         "aws_cdk.aws_cloudfront_origins",
+        "aws_cdk.aws_s3",
     ],
     python_requires=">=3.6",
     classifiers=[
