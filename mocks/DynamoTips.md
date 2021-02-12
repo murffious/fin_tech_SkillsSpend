@@ -39,6 +39,14 @@ Mock Data is 1st step to building front end
 - Scans have return "limit" (1MB)
 - Filter expressions?
 
+### Hey, What About...?
+
+- custom Custom Queries
+- Filter expressions
+- Batch operations
+- DynamoDB streams
+- Global tables
+
 ### Keys and Indexes
 - Create indexes to facilitate optimized queries 
 - Primary key: simple and composite
