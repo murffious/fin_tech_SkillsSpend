@@ -8,6 +8,14 @@ Secondary indexes are crucial data modeling tools in DynamoDB. They allow you to
 
 https://aws.amazon.com/getting-started/hands-on/design-a-database-for-a-mobile-app-with-dynamodb/4/
 https://www.mockaroo.com/
+### Keys and Indexes
+
+- Primary key: simple and composite
+- Types of keys: partition key, sort key
+- Secondary indexes
+- "Local" uses same partition key
+- "Global" has new partition/sort keys
+
 
 When designing the primary key for a DynamoDB table, keep the following best practices in mind:
 
