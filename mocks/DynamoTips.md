@@ -18,3 +18,5 @@ Focus on single-item actions first, and then add multiple-item actions if possib
 \*\* Having a many-to-many mapping is usually an indication that you will want to satisfy two Query patterns, and our application is no exception. On the Friendship entity, we have an access pattern that needs to find all users that follow a particular user as well as an access pattern to find all of the users that a given user follows.
 
 Because of this, we’ll use a composite primary key with both a HASH and RANGE value. The composite primary key will give us the Query ability on the HASH key to satisfy one of the query patterns we need. In the DynamoDB API specification, the partition key is called HASH and the sort key is called RANGE, and in this guide we will use the API terminology interchangeably and especially when we discuss the code or DynamoDB JSON wire format.
+
+Mock Data is 1st step to building front end
