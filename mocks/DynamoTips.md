@@ -32,6 +32,13 @@ Mock Data is 1st step to building front end
 - More flexible queries than DynamoDB, but so is ElasticSearch
 - Not quite the "real" thing
 
+### Queries vs. Scans
+
+- Queries run against partitions
+- Scans run against whole table
+- Scans have return "limit" (1MB)
+- Filter expressions?
+
 ### Keys and Indexes
 - Create indexes to facilitate optimized queries 
 - Primary key: simple and composite
