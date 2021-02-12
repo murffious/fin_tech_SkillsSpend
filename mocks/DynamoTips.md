@@ -8,13 +8,7 @@ Secondary indexes are crucial data modeling tools in DynamoDB. They allow you to
 
 https://aws.amazon.com/getting-started/hands-on/design-a-database-for-a-mobile-app-with-dynamodb/4/
 https://www.mockaroo.com/
-### Keys and Indexes
 
-- Primary key: simple and composite
-- Types of keys: partition key, sort key
-- Secondary indexes
-- "Local" uses same partition key
-- "Global" has new partition/sort keys
 
 
 When designing the primary key for a DynamoDB table, keep the following best practices in mind:
@@ -37,6 +31,14 @@ Mock Data is 1st step to building front end
 - Seems more geared towards MongoDB "conversions"
 - More flexible queries than DynamoDB, but so is ElasticSearch
 - Not quite the "real" thing
+
+### Keys and Indexes
+- Create indexes to facilitate optimized queries 
+- Primary key: simple and composite
+- Types of keys: partition key, sort key
+- Secondary indexes
+- "Local" uses same partition key
+- "Global" has new partition/sort keys
 
 
 Using DocumentDB kind of feels like using MongoDB, but when you get to more advanced use cases you start to see where it breaks down.  It gets better every day, but if you are used to MongoDB 4.0+ then you will be disappointed.
