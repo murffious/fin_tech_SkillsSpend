@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"client.e31bb0bc.css","sourceRoot":"..","sourcesContent":[".main {\n  /* Reference an image file */\n  background-color: gray;\n}\n\nbody {\n  background-color: #d5dbdb;\n}\n"]}
+{"version":3,"sources":["main.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","file":"client.e31bb0bc.css","sourceRoot":"..","sourcesContent":[".main {\n  color: red;\n}\n\nbody {\n  background-color: #d5dbdb;\n}\n"]}
