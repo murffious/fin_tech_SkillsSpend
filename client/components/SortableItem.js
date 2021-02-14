@@ -18,7 +18,7 @@ export function SortableItem(props) {
   
   return (
     <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      "ehlo"
+      {"Elfrida"+Math.random()}
     </div>
   );
 }

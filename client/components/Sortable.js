@@ -20,7 +20,6 @@ import {Item} from './Item';
 
 export default function Sortable() {
   const [activeId, setActiveId] = useState(null);
-  console.log("test")
   const [items, setItems] = useState(['1', '2', '3']);
   const sensors = useSensors(
     useSensor(PointerSensor),

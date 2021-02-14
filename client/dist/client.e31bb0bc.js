@@ -33304,7 +33304,7 @@ function SortableItem(props) {
   return /*#__PURE__*/_react.default.createElement("div", _extends({
     ref: setNodeRef,
     style: style
-  }, attributes, listeners), "\"ehlo\"");
+  }, attributes, listeners), "Elfrida" + Math.random());
 }
 },{"react":"node_modules/react/index.js","@dnd-kit/sortable":"node_modules/@dnd-kit/sortable/dist/sortable.esm.js","@dnd-kit/utilities":"node_modules/@dnd-kit/utilities/dist/utilities.esm.js"}],"components/Item.js":[function(require,module,exports) {
 "use strict";
@@ -33374,8 +33374,6 @@ function Sortable() {
       _useState2 = _slicedToArray(_useState, 2),
       activeId = _useState2[0],
       setActiveId = _useState2[1];
-
-  console.log("test");
 
   var _useState3 = (0, _react.useState)(['1', '2', '3']),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -33486,7 +33484,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53142" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63231" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
