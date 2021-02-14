@@ -1,0 +1,23 @@
+{
+    "AUTH_REQUEST": {
+        "client_id": "7",
+        "response_type": "code",
+        "scope": "openid profile",
+        "redirect_uri": "https://ljsldkfj/_callback"
+    },
+    "TOKEN_REQUEST": {
+        "client_id": "sameasabove7",
+        "redirect_uri": "https://sdaasdfasdf/_callback",
+        "grant_type": "authorization_code",
+        "client_secret": "ZkeyM"
+    },
+    "DISTRIBUTION": "skillSpend",
+    "AUTHN": "OKTA",
+    "PRIVATE_KEY": ,
+    "PUBLIC_KEY": ,
+    "DISCOVERY_DOCUMENT": "https://----/oauth2/default/.well-known/openid-configuration",
+    "SESSION_DURATION": 3600,
+    "BASE_URL": "https://",
+    "CALLBACK_PATH": "/_callback",
+    "AUTHZ": "OKTA"
+}

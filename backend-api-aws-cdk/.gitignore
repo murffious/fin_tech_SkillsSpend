@@ -4,5 +4,3 @@
 __pycache__/*
 .env
 cdk.out/
-.cache/
-node_modules/
