@@ -37,28 +37,38 @@ class MyPipelineStack(Stack):
             ),
         )
 
-        # Do this as many times as necessary with any account and region
-        # # Account and region may different from the pipeline's.
-        # pipeline.add_application_stage(
-        #     MyApplication(
-        #         self,
-        #         "Prod",
-        #         env=Environment(account="123456789012", region="eu-west-1"),
-        #     )
-        # )
-        # testing_stage = pipeline.add_application_stage(
-        #     MyApplication(
-        #         self,
-        #         "Testing",
-        #         env=Environment(account="111111111111", region="eu-west-1"),
-        #     )
-        # )
 
-        # # Add an action -- in this case, a Manual Approval action
-        # # (testingStage.addManualApprovalAction() is an equivalent convenience method)
-        # testing_stage.add_actions(
-        #     ManualApprovalAction(
-        #         action_name="ManualApproval",
-        #         run_order=testing_stage.next_sequential_run_order(),
-        #     )
-        # )
+# <<<<<<< HEAD:backend-api-aws-cdk/pipeline/pipeline_stack.py
+# =======
+# <<<<<<< HEAD
+# >>>>>>> main:dynamodb-lambda/pipeline/pipeline_stack.py
+# Do this as many times as necessary with any account and region
+# # Account and region may different from the pipeline's.
+# pipeline.add_application_stage(
+#     MyApplication(
+#         self,
+#         "Prod",
+#         env=Environment(account="123456789012", region="eu-west-1"),
+#     )
+# )
+# <<<<<<< HEAD:backend-api-aws-cdk/pipeline/pipeline_stack.py
+# =======
+# =======
+# >>>>>>> main
+# >>>>>>> main:dynamodb-lambda/pipeline/pipeline_stack.py
+# testing_stage = pipeline.add_application_stage(
+#     MyApplication(
+#         self,
+#         "Testing",
+#         env=Environment(account="111111111111", region="eu-west-1"),
+#     )
+# )
+
+# # Add an action -- in this case, a Manual Approval action
+# # (testingStage.addManualApprovalAction() is an equivalent convenience method)
+# testing_stage.add_actions(
+#     ManualApprovalAction(
+#         action_name="ManualApproval",
+#         run_order=testing_stage.next_sequential_run_order(),
+#     )
+# )
