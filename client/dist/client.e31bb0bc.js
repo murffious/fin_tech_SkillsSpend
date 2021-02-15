@@ -33339,13 +33339,13 @@ exports.Handle = Handle;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _Handle = _interopRequireDefault(require("./Handle.css"));
+require("./Handle.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Handle(props) {
   return _react.default.createElement("div", Object.assign({
-    className: _Handle.default.Handle,
+    className: "Handle",
     tabIndex: 0,
     "data-cypress": "draggable-handle"
   }, props), _react.default.createElement("svg", {
@@ -33436,7 +33436,7 @@ var Item = _react.default.memo(_react.default.forwardRef(function (_a, ref) {
     transition: transition,
     value: value
   }) : _react.default.createElement("li", {
-    className: (0, _classnames.default)(_Item.default.Wrapper, fadeIn && _Item.default.fadeIn, sorting && _Item.default.sorting, dragOverlay && _Item.default.dragOverlay),
+    className: (0, _classnames.default)("Wrapper", "Item", fadeIn && _Item.default.fadeIn, sorting && _Item.default.sorting, dragOverlay && _Item.default.dragOverlay),
     style: Object.assign(Object.assign({}, wrapperStyle), {
       transition: transition,
       '--translate-x': transform ? "".concat(Math.round(transform.x), "px") : undefined,
@@ -33960,7 +33960,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // import a CSS module
 var App = function App() {
   console.log(_main.default.main);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Sortable.MultipleContainers, null));
+  return /*#__PURE__*/_react.default.createElement(_Sortable.MultipleContainers, null);
 };
 
 var _default = App;
@@ -34005,7 +34005,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51669" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55784" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

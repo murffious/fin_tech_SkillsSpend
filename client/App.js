@@ -6,7 +6,7 @@ import {MultipleContainers} from './components/Sortable'
 
  const App = () => {
   console.log(classes.main);
-  return (<div><MultipleContainers/></div>)
+  return (<MultipleContainers/>)
 };
 
 export default App;

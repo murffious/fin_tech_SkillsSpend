@@ -36,7 +36,7 @@ export const Item = React.memo(React.forwardRef((_a, ref) => {
       transform,
       transition,
       value,
-  })) : (React.createElement("li", { className: classNames(styles.Wrapper, fadeIn && styles.fadeIn, sorting && styles.sorting, dragOverlay && styles.dragOverlay), style: Object.assign(Object.assign({}, wrapperStyle), { transition, '--translate-x': transform
+  })) : (React.createElement("li", { className: classNames("Wrapper", "Item", fadeIn && styles.fadeIn, sorting && styles.sorting, dragOverlay && styles.dragOverlay), style: Object.assign(Object.assign({}, wrapperStyle), { transition, '--translate-x': transform
               ? `${Math.round(transform.x)}px`
               : undefined, '--translate-y': transform
               ? `${Math.round(transform.y)}px`

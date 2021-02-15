@@ -1,3 +1,6 @@
+:root {
+  --columns: 4;
+}
 .List {
   display: grid;
   grid-auto-rows: max-content;
