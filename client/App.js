@@ -2,11 +2,11 @@
 import React from 'react'
 // import a CSS module
 import classes from './main.css';
-import Sortable from './components/Sortable'
+import {MultipleContainers} from './components/Sortable'
 
  const App = () => {
   console.log(classes.main);
-  return (<div><Sortable/></div>)
+  return (<div><MultipleContainers/></div>)
 };
 
 export default App;

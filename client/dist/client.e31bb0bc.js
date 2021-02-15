@@ -33269,44 +33269,97 @@ var sortableKeyboardCoordinates = function sortableKeyboardCoordinates(event, _r
 };
 
 exports.sortableKeyboardCoordinates = sortableKeyboardCoordinates;
-},{"react":"node_modules/react/index.js","@dnd-kit/core":"node_modules/@dnd-kit/core/dist/core.esm.js","@dnd-kit/utilities":"node_modules/@dnd-kit/utilities/dist/utilities.esm.js"}],"components/SortableItem.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","@dnd-kit/core":"node_modules/@dnd-kit/core/dist/core.esm.js","@dnd-kit/utilities":"node_modules/@dnd-kit/utilities/dist/utilities.esm.js"}],"node_modules/classnames/index.js":[function(require,module,exports) {
+var define;
+/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+		// register as 'classnames', consistent with npm package name
+		define('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+},{}],"components/Handle.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Handle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SortableItem = SortableItem;
+exports.Handle = Handle;
 
 var _react = _interopRequireDefault(require("react"));
 
-var _sortable = require("@dnd-kit/sortable");
-
-var _utilities = require("@dnd-kit/utilities");
+var _Handle = _interopRequireDefault(require("./Handle.css"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function SortableItem(props) {
-  var _useSortable = (0, _sortable.useSortable)({
-    id: props.id
-  }),
-      attributes = _useSortable.attributes,
-      listeners = _useSortable.listeners,
-      setNodeRef = _useSortable.setNodeRef,
-      transform = _useSortable.transform,
-      transition = _useSortable.transition;
-
-  var style = {
-    transform: _utilities.CSS.Transform.toString(transform),
-    transition: transition
-  };
-  return /*#__PURE__*/_react.default.createElement("div", _extends({
-    ref: setNodeRef,
-    style: style
-  }, attributes, listeners), "Elfrida" + Math.random());
+function Handle(props) {
+  return _react.default.createElement("div", Object.assign({
+    className: _Handle.default.Handle,
+    tabIndex: 0,
+    "data-cypress": "draggable-handle"
+  }, props), _react.default.createElement("svg", {
+    viewBox: "0 0 20 20"
+  }, _react.default.createElement("path", {
+    d: "M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"
+  })));
 }
-},{"react":"node_modules/react/index.js","@dnd-kit/sortable":"node_modules/@dnd-kit/sortable/dist/sortable.esm.js","@dnd-kit/utilities":"node_modules/@dnd-kit/utilities/dist/utilities.esm.js"}],"components/Item.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Handle.css":"components/Handle.css"}],"components/Item.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Item.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33316,111 +33369,579 @@ exports.Item = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _classnames = _interopRequireDefault(require("classnames"));
+
+var _Handle = require("./Handle");
+
+var _Item = _interopRequireDefault(require("./Item.css"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+var __rest = void 0 && (void 0).__rest || function (s, e) {
+  var t = {};
 
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+  for (var p in s) {
+    if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0) t[p] = s[p];
+  }
 
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+  if (s != null && typeof Object.getOwnPropertySymbols === "function") for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+    if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i])) t[p[i]] = s[p[i]];
+  }
+  return t;
+};
 
-var Item = (0, _react.forwardRef)(function (_ref, ref) {
-  var id = _ref.id,
-      props = _objectWithoutProperties(_ref, ["id"]);
+var Item = _react.default.memo(_react.default.forwardRef(function (_a, ref) {
+  var color = _a.color,
+      dragOverlay = _a.dragOverlay,
+      dragging = _a.dragging,
+      disabled = _a.disabled,
+      fadeIn = _a.fadeIn,
+      handle = _a.handle,
+      height = _a.height,
+      index = _a.index,
+      listeners = _a.listeners,
+      renderItem = _a.renderItem,
+      sorting = _a.sorting,
+      style = _a.style,
+      transition = _a.transition,
+      transform = _a.transform,
+      value = _a.value,
+      wrapperStyle = _a.wrapperStyle,
+      props = __rest(_a, ["color", "dragOverlay", "dragging", "disabled", "fadeIn", "handle", "height", "index", "listeners", "renderItem", "sorting", "style", "transition", "transform", "value", "wrapperStyle"]);
 
-  return /*#__PURE__*/_react.default.createElement("div", _extends({}, props, {
+  (0, _react.useEffect)(function () {
+    if (!dragOverlay) {
+      return;
+    }
+
+    document.body.style.cursor = 'grabbing';
+    return function () {
+      document.body.style.cursor = '';
+    };
+  }, [dragOverlay]);
+  return renderItem ? renderItem({
+    dragOverlay: Boolean(dragOverlay),
+    dragging: Boolean(dragging),
+    sorting: Boolean(sorting),
+    index: index,
+    fadeIn: Boolean(fadeIn),
+    listeners: listeners,
+    ref: ref,
+    style: style,
+    transform: transform,
+    transition: transition,
+    value: value
+  }) : _react.default.createElement("li", {
+    className: (0, _classnames.default)(_Item.default.Wrapper, fadeIn && _Item.default.fadeIn, sorting && _Item.default.sorting, dragOverlay && _Item.default.dragOverlay),
+    style: Object.assign(Object.assign({}, wrapperStyle), {
+      transition: transition,
+      '--translate-x': transform ? "".concat(Math.round(transform.x), "px") : undefined,
+      '--translate-y': transform ? "".concat(Math.round(transform.y), "px") : undefined,
+      '--scale-x': (transform === null || transform === void 0 ? void 0 : transform.scaleX) ? "".concat(transform.scaleX) : undefined,
+      '--scale-y': (transform === null || transform === void 0 ? void 0 : transform.scaleY) ? "".concat(transform.scaleY) : undefined,
+      '--index': index,
+      '--color': color
+    }),
     ref: ref
-  }), id);
-});
+  }, _react.default.createElement("div", Object.assign({
+    className: (0, _classnames.default)(_Item.default.Item, dragging && _Item.default.dragging, handle && _Item.default.withHandle, dragOverlay && _Item.default.dragOverlay, disabled && _Item.default.disabled, color && _Item.default.color),
+    tabIndex: !handle ? 0 : undefined,
+    style: style,
+    "data-cypress": "draggable-item"
+  }, !handle ? listeners : undefined, props), value, handle ? _react.default.createElement(_Handle.Handle, Object.assign({}, listeners)) : null));
+}));
+
 exports.Item = Item;
-},{"react":"node_modules/react/index.js"}],"components/Sortable.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","classnames":"node_modules/classnames/index.js","./Handle":"components/Handle.js","./Item.css":"components/Item.css"}],"components/List.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/List.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = Sortable;
+exports.List = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _core = require("@dnd-kit/core");
+var _classnames = _interopRequireDefault(require("classnames"));
 
-var _sortable = require("@dnd-kit/sortable");
+require("./List.css");
 
-var _SortableItem = require("./SortableItem");
-
-var _Item = require("./Item");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var List = (0, _react.forwardRef)(function (_ref, ref) {
+  var children = _ref.children,
+      _ref$columns = _ref.columns,
+      columns = _ref$columns === void 0 ? 1 : _ref$columns,
+      horizontal = _ref.horizontal,
+      style = _ref.style;
+  return /*#__PURE__*/_react.default.createElement("ul", {
+    ref: ref,
+    style: _objectSpread(_objectSpread({}, style), {}, {
+      '--columns': columns
+    }),
+    className: (0, _classnames.default)("List")
+  }, children);
+});
+exports.List = List;
+},{"react":"node_modules/react/index.js","classnames":"node_modules/classnames/index.js","./List.css":"components/List.css"}],"components/Sortable.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MultipleContainers = MultipleContainers;
+exports.VOID_ID = exports.defaultContainerStyle = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactDom = require("react-dom");
+
+var _core = require("@dnd-kit/core");
+
+var _sortable = require("@dnd-kit/sortable");
+
+var _Item = require("./Item");
+
+var _List = require("./List");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function Sortable() {
-  var _useState = (0, _react.useState)(null),
-      _useState2 = _slicedToArray(_useState, 2),
-      activeId = _useState2[0],
-      setActiveId = _useState2[1];
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
-  var _useState3 = (0, _react.useState)(['1', '2', '3']),
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var defaultInitializer = function defaultInitializer(index) {
+  return index;
+};
+
+function createRange(length) {
+  var initializer = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultInitializer;
+  return _toConsumableArray(new Array(length)).map(function (_, index) {
+    return initializer(index);
+  });
+}
+
+function DroppableContainer(_ref) {
+  var children = _ref.children,
+      _ref$columns = _ref.columns,
+      columns = _ref$columns === void 0 ? 1 : _ref$columns,
+      id = _ref.id,
+      items = _ref.items,
+      _ref$getStyle = _ref.getStyle,
+      getStyle = _ref$getStyle === void 0 ? function () {
+    return {};
+  } : _ref$getStyle;
+
+  var _useDroppable = (0, _core.useDroppable)({
+    id: id
+  }),
+      over = _useDroppable.over,
+      isOver = _useDroppable.isOver,
+      setNodeRef = _useDroppable.setNodeRef;
+
+  var isOverContainer = isOver || (over ? items.includes(over.id) : false);
+  return _react.default.createElement(_List.List, {
+    ref: setNodeRef,
+    style: getStyle({
+      isOverContainer: isOverContainer
+    }),
+    columns: columns
+  }, children);
+}
+
+var defaultContainerStyle = function defaultContainerStyle(_ref2) {
+  var isOverContainer = _ref2.isOverContainer;
+  return {
+    marginTop: 40,
+    backgroundColor: isOverContainer ? 'rgb(235,235,235,1)' : 'rgba(246,246,246,1)'
+  };
+};
+
+exports.defaultContainerStyle = defaultContainerStyle;
+var VOID_ID = 'void';
+exports.VOID_ID = VOID_ID;
+
+function MultipleContainers(_ref3) {
+  var _ref3$adjustScale = _ref3.adjustScale,
+      adjustScale = _ref3$adjustScale === void 0 ? false : _ref3$adjustScale,
+      _ref3$itemCount = _ref3.itemCount,
+      itemCount = _ref3$itemCount === void 0 ? 3 : _ref3$itemCount,
+      _ref3$collisionDetect = _ref3.collisionDetection,
+      collisionDetection = _ref3$collisionDetect === void 0 ? _core.closestCorners : _ref3$collisionDetect,
+      columns = _ref3.columns,
+      _ref3$handle = _ref3.handle,
+      handle = _ref3$handle === void 0 ? false : _ref3$handle,
+      initialItems = _ref3.items,
+      _ref3$getItemStyles = _ref3.getItemStyles,
+      getItemStyles = _ref3$getItemStyles === void 0 ? function () {
+    return {};
+  } : _ref3$getItemStyles,
+      _ref3$getContainerSty = _ref3.getContainerStyle,
+      getContainerStyle = _ref3$getContainerSty === void 0 ? defaultContainerStyle : _ref3$getContainerSty,
+      _ref3$wrapperStyle = _ref3.wrapperStyle,
+      wrapperStyle = _ref3$wrapperStyle === void 0 ? function () {
+    return {};
+  } : _ref3$wrapperStyle,
+      modifiers = _ref3.modifiers,
+      renderItem = _ref3.renderItem,
+      _ref3$strategy = _ref3.strategy,
+      strategy = _ref3$strategy === void 0 ? _sortable.verticalListSortingStrategy : _ref3$strategy,
+      _ref3$trashable = _ref3.trashable,
+      trashable = _ref3$trashable === void 0 ? false : _ref3$trashable,
+      _ref3$vertical = _ref3.vertical,
+      vertical = _ref3$vertical === void 0 ? false : _ref3$vertical;
+
+  var _useState = (0, _react.useState)(function () {
+    return initialItems !== null && initialItems !== void 0 ? initialItems : _defineProperty({
+      A: createRange(itemCount, function (index) {
+        return "A".concat(index + 1);
+      }),
+      B: createRange(itemCount, function (index) {
+        return "B".concat(index + 1);
+      }),
+      C: createRange(itemCount, function (index) {
+        return "C".concat(index + 1);
+      }),
+      D: createRange(itemCount, function (index) {
+        return "D".concat(index + 1);
+      })
+    }, VOID_ID, []);
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      items = _useState2[0],
+      setItems = _useState2[1];
+
+  var _useState3 = (0, _react.useState)(null),
       _useState4 = _slicedToArray(_useState3, 2),
-      items = _useState4[0],
-      setItems = _useState4[1];
+      dragOverlaydItems = _useState4[0],
+      setClonedItems = _useState4[1];
+
+  var _useState5 = (0, _react.useState)(null),
+      _useState6 = _slicedToArray(_useState5, 2),
+      activeId = _useState6[0],
+      setActiveId = _useState6[1];
 
   var sensors = (0, _core.useSensors)((0, _core.useSensor)(_core.PointerSensor), (0, _core.useSensor)(_core.KeyboardSensor, {
     coordinateGetter: _sortable.sortableKeyboardCoordinates
   }));
-  return /*#__PURE__*/_react.default.createElement(_core.DndContext, {
-    sensors: sensors,
-    collisionDetection: _core.closestCenter,
-    onDragStart: handleDragStart,
-    onDragEnd: handleDragEnd
-  }, /*#__PURE__*/_react.default.createElement(_sortable.SortableContext, {
-    items: items,
-    strategy: _sortable.verticalListSortingStrategy
-  }, items.map(function (id) {
-    return /*#__PURE__*/_react.default.createElement(_SortableItem.SortableItem, {
-      key: id,
-      id: id
-    });
-  })), /*#__PURE__*/_react.default.createElement(_core.DragOverlay, null, activeId ? /*#__PURE__*/_react.default.createElement(_Item.Item, {
-    id: activeId
-  }) : null));
 
-  function handleDragStart(event) {
-    var active = event.active;
-    setActiveId(active.id);
-  }
-
-  function handleDragEnd(event) {
-    var active = event.active,
-        over = event.over;
-
-    if (active.id !== over.id) {
-      setItems(function (items) {
-        var oldIndex = items.indexOf(active.id);
-        var newIndex = items.indexOf(over.id);
-        return (0, _sortable.arrayMove)(items, oldIndex, newIndex);
-      });
+  var findContainer = function findContainer(id) {
+    if (id in items) {
+      return id;
     }
 
-    setActiveId(null);
-  }
+    return Object.keys(items).find(function (key) {
+      return items[key].includes(id);
+    });
+  };
+
+  var getIndex = function getIndex(id) {
+    var container = findContainer(id);
+
+    if (!container) {
+      return -1;
+    }
+
+    var index = items[container].indexOf(id);
+    return index;
+  };
+
+  return _react.default.createElement(_core.DndContext, {
+    sensors: sensors,
+    collisionDetection: collisionDetection,
+    onDragStart: function onDragStart(_ref5) {
+      var active = _ref5.active;
+      setActiveId(active.id);
+      setClonedItems(items);
+    },
+    onDragOver: function onDragOver(_ref6) {
+      var active = _ref6.active,
+          over = _ref6.over,
+          draggingRect = _ref6.draggingRect;
+      var overId = (over === null || over === void 0 ? void 0 : over.id) || VOID_ID;
+      var overContainer = findContainer(overId);
+      var activeContainer = findContainer(active.id);
+
+      if (!overContainer || !activeContainer) {
+        return;
+      }
+
+      if (activeContainer !== overContainer) {
+        setItems(function (items) {
+          var _Object$assign;
+
+          var activeItems = items[activeContainer];
+          var overItems = items[overContainer];
+          var overIndex = overItems.indexOf(overId);
+          var activeIndex = activeItems.indexOf(active.id);
+          var newIndex;
+
+          if (overId in items) {
+            newIndex = overItems.length + 1;
+          } else {
+            var isBelowLastItem = over && overIndex === overItems.length - 1 && draggingRect.offsetTop > over.rect.offsetTop + over.rect.height;
+            var modifier = isBelowLastItem ? 1 : 0;
+            newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+          }
+
+          return Object.assign(Object.assign({}, items), (_Object$assign = {}, _defineProperty(_Object$assign, activeContainer, _toConsumableArray(items[activeContainer].filter(function (item) {
+            return item !== active.id;
+          }))), _defineProperty(_Object$assign, overContainer, [].concat(_toConsumableArray(items[overContainer].slice(0, newIndex)), [items[activeContainer][activeIndex]], _toConsumableArray(items[overContainer].slice(newIndex, items[overContainer].length)))), _Object$assign));
+        });
+      }
+    },
+    onDragEnd: function onDragEnd(_ref7) {
+      var active = _ref7.active,
+          over = _ref7.over;
+      var activeContainer = findContainer(active.id);
+
+      if (!activeContainer) {
+        setActiveId(null);
+        return;
+      }
+
+      var overId = (over === null || over === void 0 ? void 0 : over.id) || VOID_ID;
+
+      if (overId === VOID_ID) {
+        setItems(function (items) {
+          return Object.assign(Object.assign({}, trashable && (over === null || over === void 0 ? void 0 : over.id) === VOID_ID ? items : dragOverlaydItems), _defineProperty({}, VOID_ID, []));
+        });
+        setActiveId(null);
+        return;
+      }
+
+      var overContainer = findContainer(overId);
+
+      if (activeContainer && overContainer) {
+        var activeIndex = items[activeContainer].indexOf(active.id);
+        var overIndex = items[overContainer].indexOf(overId);
+
+        if (activeIndex !== overIndex) {
+          setItems(function (items) {
+            return Object.assign(Object.assign({}, items), _defineProperty({}, overContainer, (0, _sortable.arrayMove)(items[overContainer], activeIndex, overIndex)));
+          });
+        }
+      }
+
+      setActiveId(null);
+    },
+    onDragCancel: function onDragCancel() {
+      if (dragOverlaydItems) {
+        // Reset items to their original state in case items have been
+        // Dragged across containrs
+        setItems(dragOverlaydItems);
+      }
+
+      setActiveId(null);
+      setClonedItems(null);
+    },
+    modifiers: modifiers
+  }, _react.default.createElement("div", {
+    style: {
+      display: 'inline-grid',
+      boxSizing: 'border-box',
+      padding: '0px 20px',
+      gridAutoFlow: vertical ? 'row' : 'column'
+    }
+  }, Object.keys(items).filter(function (key) {
+    return key !== VOID_ID;
+  }).map(function (containerId) {
+    return _react.default.createElement(_sortable.SortableContext, {
+      key: containerId,
+      items: items[containerId],
+      strategy: strategy
+    }, _react.default.createElement(DroppableContainer, {
+      id: containerId,
+      columns: columns,
+      items: items[containerId],
+      getStyle: getContainerStyle
+    }, items[containerId].map(function (value, index) {
+      return _react.default.createElement(SortableItem, {
+        key: value,
+        id: value,
+        index: index,
+        handle: handle,
+        style: getItemStyles,
+        wrapperStyle: wrapperStyle,
+        renderItem: renderItem,
+        containerId: containerId,
+        getIndex: getIndex
+      });
+    })));
+  })), (0, _reactDom.createPortal)(_react.default.createElement(_core.DragOverlay, {
+    adjustScale: adjustScale
+  }, activeId ? _react.default.createElement(_Item.Item, {
+    value: activeId,
+    handle: handle,
+    style: getItemStyles({
+      containerId: findContainer(activeId),
+      overIndex: -1,
+      index: getIndex(activeId),
+      value: activeId,
+      isSorting: activeId !== null,
+      isDragging: true,
+      isDragOverlay: true
+    }),
+    color: getColor(activeId),
+    wrapperStyle: wrapperStyle({
+      index: 0
+    }),
+    renderItem: renderItem,
+    dragOverlay: true
+  }) : null), document.body), trashable && activeId ? _react.default.createElement(Trash, null) : null);
 }
-},{"react":"node_modules/react/index.js","@dnd-kit/core":"node_modules/@dnd-kit/core/dist/core.esm.js","@dnd-kit/sortable":"node_modules/@dnd-kit/sortable/dist/sortable.esm.js","./SortableItem":"components/SortableItem.js","./Item":"components/Item.js"}],"App.js":[function(require,module,exports) {
+
+function getColor(id) {
+  switch (id[0]) {
+    case 'A':
+      return '#7193f1';
+
+    case 'B':
+      return '#ffda6c';
+
+    case 'C':
+      return '#00bcd4';
+
+    case 'D':
+      return '#ef769f';
+  }
+
+  return undefined;
+}
+
+function Trash() {
+  var _useDroppable2 = (0, _core.useDroppable)({
+    id: VOID_ID
+  }),
+      setNodeRef = _useDroppable2.setNodeRef,
+      isOver = _useDroppable2.isOver;
+
+  return _react.default.createElement("div", {
+    ref: setNodeRef,
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'fixed',
+      left: '50%',
+      marginLeft: -150,
+      bottom: 20,
+      width: 300,
+      height: 60,
+      borderRadius: 5,
+      border: '1px solid',
+      borderColor: isOver ? 'red' : '#DDD'
+    }
+  }, "Drop here to delete");
+}
+
+function SortableItem(_ref8) {
+  var id = _ref8.id,
+      index = _ref8.index,
+      handle = _ref8.handle,
+      renderItem = _ref8.renderItem,
+      style = _ref8.style,
+      containerId = _ref8.containerId,
+      getIndex = _ref8.getIndex,
+      wrapperStyle = _ref8.wrapperStyle;
+
+  var _useSortable = (0, _sortable.useSortable)({
+    id: id
+  }),
+      setNodeRef = _useSortable.setNodeRef,
+      listeners = _useSortable.listeners,
+      isDragging = _useSortable.isDragging,
+      isSorting = _useSortable.isSorting,
+      over = _useSortable.over,
+      overIndex = _useSortable.overIndex,
+      transform = _useSortable.transform,
+      transition = _useSortable.transition;
+
+  var mounted = useMountStatus();
+  var mountedWhileDragging = isDragging && !mounted;
+  return _react.default.createElement(_Item.Item, {
+    ref: setNodeRef,
+    value: id,
+    dragging: isDragging,
+    sorting: isSorting,
+    handle: handle,
+    index: index,
+    wrapperStyle: wrapperStyle({
+      index: index
+    }),
+    style: style({
+      index: index,
+      value: id,
+      isDragging: isDragging,
+      isSorting: isSorting,
+      overIndex: over ? getIndex(over.id) : overIndex,
+      containerId: containerId
+    }),
+    color: getColor(id),
+    transition: transition,
+    transform: transform,
+    fadeIn: mountedWhileDragging,
+    listeners: listeners,
+    renderItem: renderItem
+  });
+}
+
+function useMountStatus() {
+  var _useState7 = (0, _react.useState)(false),
+      _useState8 = _slicedToArray(_useState7, 2),
+      isMounted = _useState8[0],
+      setIsMounted = _useState8[1];
+
+  (0, _react.useEffect)(function () {
+    var timeout = setTimeout(function () {
+      return setIsMounted(true);
+    }, 500);
+    return function () {
+      return clearTimeout(timeout);
+    };
+  }, []);
+  return isMounted;
+}
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","@dnd-kit/core":"node_modules/@dnd-kit/core/dist/core.esm.js","@dnd-kit/sortable":"node_modules/@dnd-kit/sortable/dist/sortable.esm.js","./Item":"components/Item.js","./List":"components/List.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33432,14 +33953,14 @@ var _react = _interopRequireDefault(require("react"));
 
 var _main = _interopRequireDefault(require("./main.css"));
 
-var _Sortable = _interopRequireDefault(require("./components/Sortable"));
+var _Sortable = require("./components/Sortable");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import a CSS module
 var App = function App() {
   console.log(_main.default.main);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Sortable.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Sortable.MultipleContainers, null));
 };
 
 var _default = App;
@@ -33484,7 +34005,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63231" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51669" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
