@@ -7,7 +7,18 @@
   flex: 0 0 auto;
   margin-left: auto;
   touch-action: none;
-  cursor: var(--cursor, grab);
+  /* cursor: var(--cursor, grab); */
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+
+  /* (Optional) Apply a "closed-hand" cursor during drag operation. */
+}
+.Handle:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
 }
 .Handle svg {
   flex: 0 0 auto;
